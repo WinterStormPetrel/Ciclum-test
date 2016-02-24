@@ -6,6 +6,7 @@ _____________________________________________________
 *technologies used:*
 + Knockoutjs (lib)
 + RequireJs (AMD)
++ Socket.io-client (lib)
 + SASS (SCSS)
 + GulpJs (task runner)
 
