@@ -1,0 +1,30 @@
+<aside class="left-sidebar aside">
+    <section class="sidebar-wrapper">
+        <h2 class="title" data-bind="text: title"></h2>
+        <div class="well"></div>
+        <nav>
+            <ul id="groups" data-bind="foreach: rooms">
+                <li data-bind="css: {active: $parent.currentRoom().name === name()}">
+                    <div class="room-options"
+                         data-bind="click: $parent.closeRoomSidebar.bind($data, $parent, $root)">
+                        <div data-bind="ifnot: editable">
+                            <h4 class="label" data-bind="text: name"></h4>
+                        </div>
+                        <input type="text"  autocomplete="off"
+                               data-bind="visible: editable, value: newName, enterkey: $parent.editRoom"/>
+                    </div>
+                    <div class="options" data-bind="ifnot: $data.default">
+                        <span class="icon-edit" data-bind="click: $parent.editRoomName"></span>
+                        <span class="icon-cancel" data-bind="click: $parent.deleteRoom"></span>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <section class="create-room">
+        <form id="main-form" action="">
+            <input type="text" name="" id="new-room"  autocomplete="off" data-bind="value: newRoomName, enterkey: createRoom, attr: {placeholder: placeholder}">
+            <span class="icon-accept validation" id="accept" data-bind="click: createRoom"></span>
+        </form>
+    </section>
+</aside>

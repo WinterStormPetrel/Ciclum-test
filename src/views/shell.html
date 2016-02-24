@@ -1,0 +1,14 @@
+<section class="shell" data-bind="visible: (shellDisplay || $root.offline)">
+    <section class="user-create"
+             data-bind="visible: shellDisplay, css: {'error': error().message}">
+        <h2 class="login" data-bind="text: label"></h2>
+        <section data-bind="visible: !error().message">
+            <input type="text" name="" id="login"  autocomplete="off" data-bind="value: name, valueUpdate: 'afterkeydown', enterkey: login, hasFocus: name.isSelected, attr: {placeholder: placeholder}">
+            <button data-bind="click: login, text: button, enable: enabled"></button>
+            <div class="validation">
+                <span data-bind="text: name.validationMessage">text</span>
+            </div>
+        </section>
+    </section>
+    <section class="parsys" data-bind="visible: error().message, click: hide"></section>
+</section>

@@ -1,0 +1,108 @@
+/* Left Sidebar
+-----------------------------------------------------------------------------*/
+.left-sidebar {
+  left: 0;
+  @include translate3d(-$asideWidth);
+  @include transition(transform $sidebarSpeed);
+
+  .open-left & {
+    //visibility: visible;
+    @include translate3d(0);
+  }
+
+  .sidebar-wrapper {
+    height: 100%;
+    margin-bottom: -8.3rem;
+  }
+
+  .well {
+    @include linearGradient($grey-title-3, $grey-title-4);
+    padding: 0.6rem;
+  }
+
+  nav {
+    padding-bottom: 8.5rem;
+    li {
+      position: relative;
+      overflow: hidden;
+      color: $grey-font;
+      cursor: pointer;
+      &.active {
+        background: $white;
+        border-top: 0.1rem solid $grey-bord-1;
+        border-bottom: 0.1rem solid $grey-bord-1;
+        input[type="text"] {
+          color: $black;
+        }
+        .room-options {
+          padding: 1rem 0 1rem 4.5rem;
+        }
+      }
+      &:first-child {
+        .room-options {
+          margin: 0;
+        }
+        h4 {
+          font-weight: bold;
+          text-transform: capitalize;
+        }
+      }
+      h4 {
+        padding: 0.5rem 0;
+        font-weight: normal;
+      }
+      .clickedit {
+        display: none;
+      }
+      input[type="text"] {
+        height: 2.8rem;
+        width: 100%;
+        padding: 0 1.5rem 0 1rem;
+      }
+      .room-options {
+        padding: 1.1rem 0 1.1rem 4.5rem;
+        margin-right: 5.0rem;
+      }
+      .options {
+        $font: 1.6rem;
+        position: absolute;
+        top: 50%;
+        margin-top: -$font/2;
+        right: 1rem;
+        color: $grey-font;
+        font-size: $font;
+      }
+    }
+  }
+  .create-room {
+    padding: 0.5rem 0.8rem 0.2rem 0.5rem;
+    background: $grey-title-3;
+    input[type="text"] {
+      padding: 0.5rem 1rem 0.5rem;
+      border: 0.1rem solid $grey-bord-3;
+      box-sizing: border-box;
+      height: 3.2rem;
+      width: 100%;
+    }
+    .icon-accept {
+      position: absolute;
+      top: 50%;
+      margin: -0.8rem 0 0;
+      right: 1.2rem;
+      cursor: auto;
+    }
+  }
+}
+
+//Desktop
+@include desktop() {
+  .left-sidebar {
+    left: 0;
+    float: none;
+    margin-left: 0;
+    .create-room {
+      input[type="text"] {}
+      .icon-accept {}
+    }
+  }
+}

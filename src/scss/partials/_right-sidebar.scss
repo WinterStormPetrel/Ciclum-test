@@ -1,0 +1,36 @@
+/* Right Sidebar
+-----------------------------------------------------------------------------*/
+
+.right-sidebar {
+  right: 0;
+  overflow-y: auto;
+  @include translate3d($asideWidth);
+  @include transition(transform $sidebarSpeed);
+  .open-right & {
+    visibility: visible;
+    @include translate3d(0);
+  }
+  .sidebar-wrapper {
+    padding-bottom: 4rem;
+  }
+  ul {
+    padding: 1.7rem 0 0 2rem;
+    color: $grey-font;
+    li {
+      margin: 0.3rem 0;
+      p {
+        font-size: 1.6rem;
+        font-weight: 600;
+      }
+    }
+  }
+}
+
+//Desktop
+@include desktop(){
+  .right-sidebar {
+    right: 0;
+    float: none;
+    margin-right: 0;
+  }
+}

@@ -1,0 +1,26 @@
+@import "variables";
+@import "mixins";
+
+@include font(awesome);
+
+[class^="icon"] {
+  @include icon();
+}
+.icon-menu:before {
+  content: "\f0c9";
+}
+.icon-paper-plane:before {
+  content: "\f1d8";
+}
+.icon-edit:before {
+  content: "\f044";
+}
+.icon-spiner:before {
+  content: "\f110";
+}
+.icon-cancel:before {
+  content: "\f00d";
+}
+.icon-accept:before {
+  content: "\f00c";
+}

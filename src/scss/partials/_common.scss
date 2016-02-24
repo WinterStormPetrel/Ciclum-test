@@ -1,0 +1,166 @@
+/* Common styles
+-----------------------------------------------------------------------------*/
+
+html {
+  font-size: 62.5%; /* 1 */
+}
+html, body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background-color: $white;
+  font-size: 1.4rem;
+  font-weight: normal;
+  overflow: hidden;
+}
+h1, h2, h3, h4, h5, h6, p, span {
+  margin: 0;
+  padding: 0;
+}
+button,
+html input[type=button],
+input[type=reset],
+input[type=submit] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+button {
+  outline: none;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-appearance: button;
+  @include prefix(user-select, none);
+}
+input[type="text"] {
+  outline: none;
+  box-sizing: border-box;
+}
+body, header, footer, main {
+  min-width: $asideWidth;
+}
+.hidden {
+  display: none;
+}
+
+.wrapper {
+  width: 100%;
+  min-height: 100%;
+  height: 100%;
+  overflow: hidden;
+  @include translate3d(0);
+  @include transition(transform $sidebarSpeed - 0.03s);
+  .open-right & {
+    position: fixed;
+    overflow: hidden;
+    @include translate3d(-$asideWidth);
+  }
+  .open-left & {
+    position: fixed;
+    overflow: hidden;
+    @include translate3d($asideWidth);
+  }
+}
+
+/* Sidebar styles
+-----------------------------------------------------------------------------*/
+.left-sidebar, .right-sidebar {
+  width: $asideWidth;
+  //height: 100%;
+  //top: $headerHeight;
+  background-color: $grey-title-3;
+  border: 0.1rem solid $grey-bord-3;
+  position: fixed;
+  bottom: 0;
+  top: $headerHeight;
+  z-index: 1;
+  box-sizing: border-box;
+  -webkit-transform:translate3d(0,0,0);
+  -webkit-transition:-webkit-transform 1s;
+  .sidebar-wrapper {
+    overflow-y: auto;
+  }
+  .title {
+    padding: 2rem 1.5rem 1.5rem;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: bold;
+    color: $blue-font;
+    @include linearGradient($grey-title-1, $grey-title-2);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    li {
+      h4, p {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}
+
+.message-input,
+.create-room {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  input[type="text"] {
+    width: 100%;
+    height: 3.2rem;
+    box-sizing: border-box;
+    padding: 0.5rem 2.5rem 0.5rem 8rem;
+    font-size: 1.6rem;
+    border: 0.1rem solid $grey-bord-3;
+  }
+}
+
+//Desktop
+@include desktop() {
+  .wrapper {
+    .open-right &,
+    .open-left & {
+      transform: none;
+    }
+  }
+  body .left-sidebar,
+  body .right-sidebar {
+    position: absolute;
+    bottom: 0;
+    visibility: visible;
+    @include transform(none);
+  }
+}
+
+@include print() {
+  header,
+  footer,
+  .left-sidebar,
+  .right-sidebar {
+    display: none;
+  }
+  * {
+    width: 100%;
+    text-align: left;
+    padding: 0;
+    margin: 0;
+    position: static;
+    overflow: hidden;
+  }
+  article {
+    width: 100%;
+    p {
+      width: 100%;
+      display: block;
+    }
+    .time {
+      text-align: right;
+      padding-right: 2rem;
+      display: block;
+    }
+  }
+}

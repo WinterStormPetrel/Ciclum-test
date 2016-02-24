@@ -1,0 +1,26 @@
+{
+  "name": "app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Komenda Pavlo",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-jshint": "^2.0.0",
+    "gulp-live-server": "0.0.29",
+    "gulp-sass": "^2.2.0",
+    "jshint": "^2.9.1",
+    "jshint-stylish": "^2.1.0",
+    "madge": "^0.5.3"
+  },
+  "dependencies": {
+    "knockout": "^3.4.0",
+    "require": "^2.4.20",
+    "smokesignals": "^1.0.2",
+    "socket.io-client": "^1.4.5"
+  }
+}

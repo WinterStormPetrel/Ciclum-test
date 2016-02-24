@@ -1,0 +1,37 @@
+<header class="header">
+    <button class="sidebar-menu left button" data-bind="click: sidebarToggle.bind($data, 'left')">
+        <span class="icon-menu"></span>
+    </button>
+    <button class="sidebar-menu right button" data-bind="click: sidebarToggle.bind($data, 'right')">
+        <span class="icon-menu"></span>
+    </button>
+    <h1 class="title off-line">
+        <span class="icon"></span>
+        <span data-bind="text: title"></span>
+    </h1>
+</header><!-- .header-->
+<!-- ko component: "rooms-sidebar" -->
+<!-- /ko --><!-- .left-sidebar -->
+<!-- ko component: "users-sidebar" -->
+<!-- /ko --><!-- .right-sidebar -->
+<section class="wrapper">
+    <div class="middle" id="middle">
+        <main class="content" data-bind="foreach: messages">
+            <article data-bind="css: {own: user.name == $parent.isAuthor()}">
+                <p class="user" data-bind="text: user.name"></p>
+                <p class="message" data-bind="text: content"></p>
+                <span class="time" data-bind="text: $root.getTime(created)"></span>
+            </article>
+        </main><!-- .content -->
+    </div><!-- .middle-->
+    <footer class="footer">
+        <section class="message-input">
+            <span class="test js-push-button" data-bind="text: testText">Test</span>
+            <input type="text" autocomplete="off" data-bind="value: content, enterkey: sendMessage, hasFocus: isSelected, attr: {placeholder: placeholder}">
+            <span class="icon-paper-plane" id="send" data-bind="click: sendMessage"></span>
+        </section>
+    </footer><!-- .footer -->
+</section><!-- .wrapper -->
+
+<!-- ko component: "shell" -->
+<!-- /ko --><!-- .shell -->

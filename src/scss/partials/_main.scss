@@ -1,0 +1,74 @@
+/* Main content styles
+-----------------------------------------------------------------------------*/
+.middle {
+  width: auto;
+  padding: 0 0.5rem;
+  margin: $headerHeight + 0.5rem 0 -9rem;
+  position: relative;
+  overflow-y: auto;
+  height: 100%;
+  &:after {
+    display: table;
+    clear: both;
+    content: '';
+  }
+  .content {
+    padding: 0 0.5rem;
+    main {
+      padding-bottom: 10rem;
+    }
+    article {
+      padding: 0;
+      margin: 0.6rem 0.5rem 2.6rem;
+      P {
+        margin: 0;
+        font-weight: normal;
+      }
+      .user {
+        margin: 0 0 0.3rem;
+        font-size: 1.4rem;
+        font-weight: bold;
+        color: $grey-font;
+      }
+      .message {
+        background-color: $grey-chat;
+        padding: 1.2rem 1rem 1.1rem;
+        border-radius: 0.5rem;
+        position: relative;
+        font-size: 1.6rem;
+        &::after {
+          content: '';
+          display: inline-block;
+          position: absolute;
+          left: -1rem;
+          top: 2rem;
+          margin-top: -0.7rem;
+          @include cssTriangle($grey-chat, 1rem, 0.7rem, 'right');
+        }
+      }
+      &.own .message {
+        background-color: $blue-chat;
+        &::after {
+          left: auto;
+          right: -1rem;
+          @include cssTriangle($blue-chat, 1rem, 0.7rem, 'left');
+        }
+      }
+      .time {
+        margin: 0.5rem 0;
+        float: right;
+        clear: right;
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+//Desktop
+@include desktop() {
+  .middle {
+    padding: 0 $asideWidth + 0.5rem;
+    .content{
+    }
+  }
+}

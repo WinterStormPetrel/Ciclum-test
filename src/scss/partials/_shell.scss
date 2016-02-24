@@ -1,0 +1,119 @@
+.shell {
+  position: absolute;
+  top:0;
+  bottom:0;
+  right: 0;
+  left: 0;
+  background: rgba(0,0,0,0.8);
+  z-index: 999;
+  .offline &{
+    &:after {
+      $font-size: 3rem;
+      content: "\f110";
+      @include icon();
+      font-size: $font-size;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      color: $white;
+      margin-top: -$font-size/2;
+      margin-left: -$font-size/2;
+      @include keyframes(spin) {
+        0% {
+          -webkit-transform: rotate(0deg);
+          transform: rotate(0deg);
+        }
+        100% {
+          -webkit-transform: rotate(359deg);
+          transform: rotate(359deg);
+        }
+      }
+      @include animation(spin 2s infinite linear);
+    }
+  }
+  .user-create {
+    $width: 25rem;
+    $height: 15rem;
+    $padding: 2rem;
+
+    padding: $padding;
+    width: $width;
+    min-height: $height;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -$height/2 - $padding;
+    margin-left: -$width/2 - $padding;
+    background: $white;
+    display: block;
+    border-radius: 0.5rem;
+    &.error {
+      min-height: 0;
+      width: $width + 15rem;
+      margin-left: -$width/2 - $padding - 7rem;
+      margin-top: -5.5rem;
+      color: $red-poit;
+      font-weight: bold;
+    }
+    .offline & {
+      display: none;
+    }
+    .login {
+      font-size: 2.4rem;
+      text-align: center;
+      padding: 2.0rem;
+      display: block;
+    }
+
+    input[type="text"] {
+      border: 0.1rem solid $grey-bord-3;
+      height: 2.8rem;
+      width: 100%;
+      display: block;
+      padding: 0.5rem 1.2rem;
+      font-size: 1.4rem;
+      text-align: center;
+      line-height: 1.42857143;
+      color: rgb(85, 85, 85);
+      background-color: rgb(255, 255, 255);
+      background-image: none;
+      border-radius: 0.4rem;
+    }
+    button {
+      cursor: pointer;
+      display: inline-block;
+      padding: 0.4rem 1.2rem;
+      margin: 2rem 0 1rem;
+      width: 100%;
+      font-size: 1.4rem;
+      font-weight: 600;
+      line-height: 1.42857143;
+      text-align: center;
+      white-space: nowrap;
+      vertical-align: middle;
+      color: green;
+      border: 0.1rem solid $grey-bord-3;
+      border-radius: 0.4rem;
+      background-image: none;
+      background-color: $white;
+      background: $green-poit;
+      &[disabled] {
+        background: #ffcccc;
+        color: $red-poit;
+      }
+    }
+    .validation {
+      text-align: center;
+      color: $red-poit;
+      display: block;
+    }
+  }
+  .parsys {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 5;
+  }
+}

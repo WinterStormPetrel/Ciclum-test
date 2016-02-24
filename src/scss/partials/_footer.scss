@@ -1,0 +1,46 @@
+/* Footer styles
+-----------------------------------------------------------------------------*/
+footer {
+  position: relative;
+  margin: -$footerHeight 0 0;
+  height: $footerHeight;
+  width: auto;
+  background: $white;
+  @include box-shadow(0rem, -0.5rem, 1rem, $white);
+  .message-input {
+    padding: 0.5rem 0.7rem;
+    position: relative;
+    .test, #send {
+      position: absolute;
+    }
+    .test {
+      left: 0.8rem;
+      top: 0.8rem;
+      width: 3rem;
+      height: 1.3rem;
+      padding: 0.7rem 2.2rem;
+      background: $grey-title-3;
+    }
+    input#message {
+      padding: 1rem 1rem 0.5rem 8rem;
+      min-width: 100%;
+      height: 2.8rem;
+      box-sizing: border-box;
+      font-size: 1.6rem;
+    }
+    #send {
+      position: absolute;
+      top: 50%;
+      margin: -0.8rem 0 0;
+      right: 1.2rem;
+      cursor: auto;
+    }
+  }
+}
+
+//Desktop
+@include desktop() {
+  footer {
+    margin: -$footerHeight $asideWidth 0;
+  }
+}
